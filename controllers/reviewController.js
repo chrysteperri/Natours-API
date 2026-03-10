@@ -15,10 +15,12 @@ exports.getAllReviews = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createReview = catchAsync(async (req, res, next) => {
+exports.setTourUserIds = (req, res, next) => {
   // Allow nested routes: POST /tours/:tourId/reviews
   if (!req.body.tour) req.body.tour = req.params.tourId;
   if (!req.body.user) req.body.user = req.user.id;
+  next();
+};
 
 exports.createReview = factory.createOne(Review);
 exports.updateReview = factory.updateOne(Review);
