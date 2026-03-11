@@ -52,9 +52,8 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
+// Admin routes
 exports.getUser = factory.getOne(User);
 exports.getAllUsers = factory.getAll(User);
-
-// Admin routes
 exports.updateUser = factory.updateOne(User); // Do not update password with this!
 exports.deleteUser = factory.deleteOne(User);
