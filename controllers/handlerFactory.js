@@ -40,6 +40,7 @@ exports.getAll = (Model) =>
       .limitFields()
       .paginate();
     const docs = await features.query;
+    // const docs = await features.query.explain(); // Use .explain() to get query execution details for performance analysis
 
     // Send response
     res.status(200).json({
