@@ -33,6 +33,7 @@ app.use(
         "'unsafe-inline'",
         'https://api.mapbox.com',
         'blob:',
+        'https://cdn.jsdelivr.net',
       ],
       workerSrc: ["'self'", 'blob:'],
       styleSrc: [
@@ -47,6 +48,7 @@ app.use(
         "'self'",
         'https://api.mapbox.com',
         'https://events.mapbox.com',
+        'https://cdn.jsdelivr.net',
       ],
       fontSrc: [
         "'self'",
