@@ -6,6 +6,8 @@
   "scripts": {
     "start:dev": "nodemon server.js",
     "start:prod": "cross-env NODE_ENV=production nodemon server.js",
+    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+    "build:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "debug": "ndb server.js"
   },
   "repository": {
