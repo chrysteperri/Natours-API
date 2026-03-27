@@ -27,6 +27,7 @@ const upload = multer({
   fileFilter: multerFilter,
 });
 
+exports.uploadUserPhoto = upload.single('photo');
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
