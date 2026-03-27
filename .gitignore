@@ -4,3 +4,5 @@ config.env
 .vscode/settings.json
 .cache/
 public/js/bundle.*
+public/img/users/*
+dev-data/img/*
