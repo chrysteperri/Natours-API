@@ -32,6 +32,23 @@ exports.validateTourExistsOnReviews = catchAsync(async (req, res, next) => {
   next();
 });
 
+exports.checkReviewOwnership = catchAsync(async (req, res, next) => {
+  const review = await Review.findById(req.params.id);
+
+  if (!review) {
+    return next(new AppError('No review found with that ID', 404));
+  }
+
+  // Allow admin OR owner
+  if (review.user.id !== req.user.id && req.user.role !== 'admin') {
+    return next(
+      new AppError('You do not have permission to perform this action', 403),
+    );
+  }
+
+  next();
+});
+
 exports.getAllReviews = factory.getAll(Review);
 exports.getReview = factory.getOne(Review);
 exports.createReview = factory.createOne(Review);
