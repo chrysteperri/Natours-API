@@ -21,6 +21,17 @@ exports.validateTourExists = catchAsync(async (req, res, next) => {
   next();
 });
 
+exports.validateTourExistsOnReviews = catchAsync(async (req, res, next) => {
+  if (!req.params.tourId) return next(); // Skip if not a nested route
+
+  const tour = await Tour.findById(req.params.tourId);
+  if (!tour) {
+    return next(new AppError('Tour not found', 404));
+  }
+
+  next();
+});
+
 exports.getAllReviews = factory.getAll(Review);
 exports.getReview = factory.getOne(Review);
 exports.createReview = factory.createOne(Review);
