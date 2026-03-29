@@ -34,6 +34,16 @@ exports.getTourStats = catchAsync(async (req, res, next) => {
         maxPrice: { $max: '$price' },
       },
     },
+    {
+      $project: {
+        numTours: 1,
+        numRatings: 1,
+        minPrice: 1,
+        maxPrice: 1,
+        avgRating: { $round: ['$avgRating', 1] },
+        avgPrice: { $round: ['$avgPrice', 1] },
+      },
+    },
     { $sort: { avgPrice: 1 } },
   ]);
   res.status(200).json({
