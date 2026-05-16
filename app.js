@@ -30,14 +30,20 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
+
       scriptSrc: [
         "'self'",
         "'unsafe-inline'",
         'https://api.mapbox.com',
+        'https://js.stripe.com',
         'blob:',
         'https://cdn.jsdelivr.net',
       ],
+
+      frameSrc: ["'self'", 'https://js.stripe.com'],
+
       workerSrc: ["'self'", 'blob:'],
+
       styleSrc: [
         "'self'",
         "'unsafe-inline'",
@@ -45,13 +51,18 @@ app.use(
         'https://fonts.googleapis.com',
         'https://fonts.gstatic.com',
       ],
+
       imgSrc: ["'self'", 'data:', 'blob:', 'https://api.mapbox.com'],
+
       connectSrc: [
         "'self'",
         'https://api.mapbox.com',
         'https://events.mapbox.com',
+        'https://api.stripe.com',
         'https://cdn.jsdelivr.net',
+        'ws://127.0.0.1:58651',
       ],
+
       fontSrc: [
         "'self'",
         'https://api.mapbox.com',
