@@ -16,7 +16,7 @@
     "url": "git+https://github.com/chrysteperri/Natours-API.git"
   },
   "author": "Chryste Perri",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/chrysteperri/Natours-API/issues"
   },
