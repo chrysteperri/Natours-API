@@ -3,6 +3,5 @@ node_modules/
 config.env
 .vscode/settings.json
 .cache/
-public/js/bundle.*
 public/img/*
 dev-data/img/*
