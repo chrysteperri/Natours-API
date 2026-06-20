@@ -41,12 +41,15 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createBookingCheckout = catchAsync(async (req, res, next) => {
-  // This is a temporary solution. It's not secure as booking can be made without payment
-  const { tour, user, price } = req.query;
+// exports.createBookingCheckout = catchAsync(async (req, res, next) => {
+//   // This is a temporary solution. It's not secure as booking can be made without payment
+//   const { tour, user, price } = req.query;
 
-  if (!tour && !user && !price) return next();
-  await Booking.create({ tour, user, price });
+//   if (!tour && !user && !price) return next();
+//   await Booking.create({ tour, user, price });
+
+//   res.redirect(req.originalUrl.split('?')[0]);
+// });
 
 const createBookingCheckout = async (session) => {
   const tourId = session.client_reference_id;
